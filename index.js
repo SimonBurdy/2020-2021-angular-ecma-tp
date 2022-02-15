@@ -18,7 +18,7 @@ const getHolidays = (year , contryCode) => axios.get( `https://date.nager.at/api
 app.post('/' , async (req, res) => {
   let imgFox = await getFoxImg();
   let catFacts =  await getCatFacts(3);
-  let holidays = await getHolidays(2022 ,req.body.countryCode);
+  let holidays = await getHolidays(2022 ,req.body?.countryCode ?? "FR");
   return {
     imgFox,
     catFacts,
